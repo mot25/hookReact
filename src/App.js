@@ -1,24 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { Context } from "./Context";
+import Counter from "./componets/Counter";
+import Books from "./componets/Books";
+import AddBook from "./componets/AddBook";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Context>
+      <div>
+        <h1>hooki</h1>
+        <Counter />
+        <Books />
+        <AddBook />
+      </div>
+    </Context>
   );
 }
 
