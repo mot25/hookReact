@@ -1,7 +1,6 @@
 export default function reducer(state, action) {
   const limitRgb = (num) => (num < 0 ? 0 : num > 255 ? 255 : num);
   const step = 20;
-  console.log("reducer");
   switch (action.type) {
     case "inc_R":
       return {

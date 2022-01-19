@@ -4,6 +4,7 @@ import Counter from "./componets/Counter";
 import Books from "./componets/Books";
 import Color from "./componets/Color";
 import AddBook from "./componets/AddBook";
+import List from "./componets/List";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <Books />
       <AddBook />
       <Color />
+      <List />
     </Context>
   );
 }
