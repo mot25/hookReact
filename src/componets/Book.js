@@ -11,7 +11,6 @@ export default function Book(props) {
         data-del={props.remove}
         onClick={(e) => {
           removeBook(+e.target.dataset.del);
-          console.log(e.target.dataset.del);
         }}
       >
         remove

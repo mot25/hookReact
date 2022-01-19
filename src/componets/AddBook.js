@@ -1,20 +1,18 @@
-import React, { useContext, useState, useEffect, useRef } from "react";
+import React, { useContext, useRef } from "react";
 import { conrtexBooks } from "../Context";
 
 export default function AddBook() {
   const { addBook } = useContext(conrtexBooks);
-  const [input, setinput] = useState();
   const addBookText = useRef(null);
-  console.log("addBookText", addBookText.current);
   const clickButton = (e) => {
     e.preventDefault();
-    console.log("addBookText", addBookText.current.value);
+    if (!addBookText.current.value) return addBookText.current.focus();
     let obj = {
       id: Date.now(),
       title: addBookText.current.value,
     };
     addBook(obj);
-    addBookText.current.value = null
+    addBookText.current.value = null;
   };
   return (
     <form>

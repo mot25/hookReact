@@ -2,7 +2,7 @@
   "name": "new",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://mot25.github.io/react-1/",
+  "homepage": "https://mot25.github.io/hookReact/",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/react": "^12.1.2",
