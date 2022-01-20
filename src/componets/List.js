@@ -13,10 +13,12 @@ export default function List() {
   const parentRef = useRef();
   const childRef = useRef();
   const intersected = useScroll(parentRef, childRef, () =>
-    fetchTodos(fetchTodos(page, limit))
+    fetchTodos(page, limit)
   );
 
   function fetchTodos(page, limit) {
+    console.log("limit", limit);
+    console.log("page", page);
     if (page > 20) {
       return;
     }
@@ -39,10 +41,9 @@ export default function List() {
   return (
     <div style={{ marginBottom: "50px" }}>
       <button onClick={() => showList()}>{show.textCheck} list posts</button>
-      <div style={{ maxHeight: "500px", overflowY: "scroll" }}>
-        <br />
+      <div  ref={parentRef} style={{ maxHeight: "500px", overflowY: "scroll"}}>
         {show.checked ? (
-          <div ref={parentRef}>
+          <div>
             {todos.map((item) => {
               return (
                 <div key={item.id}>
@@ -52,7 +53,7 @@ export default function List() {
             })}
             <div
               ref={childRef}
-              style={{ background: "red", height: "20px", width: "100%" }}
+              style={{ background: "red", height: "20px" }}
             ></div>
           </div>
         ) : (

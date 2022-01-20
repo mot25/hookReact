@@ -5,6 +5,7 @@ import Books from "./componets/Books";
 import Color from "./componets/Color";
 import AddBook from "./componets/AddBook";
 import List from "./componets/List";
+import Observer from "./componets/Observer";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       <AddBook />
       <Color />
       <List />
+      {/* <Observer /> */}
     </Context>
   );
 }
