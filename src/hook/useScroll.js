@@ -1,27 +1,30 @@
-import {useEffect, useRef} from "react";
+import { useEffect, useRef } from "react";
 
 export default function useScroll(parentRef, childRef, callback) {
-    console.log('childRef', childRef)
-    console.log('parentRef', parentRef)
-    const observer = useRef();
+// parentRef - блок ГДЕ ПРОКРУТКА И
+// childRef - БЛОК КОТОРЫЙ СТАНОВИТСЯ ВИДИМАЯ ОТРАБАТЫВАЕТСЯ КОЛБЕК 
+  const observer = useRef();
 
-    useEffect(() => {
-        const options = {
-            root: parentRef.current,
-            rootMargin: '0px',
-            threshold: 0
-        }
-        observer.current = new IntersectionObserver(([target]) => {
-            if (target.isIntersecting) {
-                console.log('intersected')
-                callback()
-            }
-        }, options)
+  useEffect(() => {
+    // ОПИЦИИ ДЛЯ observer
+    const options = {
+      root: parentRef.current,
+      rootMargin: "0px",
+      threshold: 0,
+    };
+    observer.current = new IntersectionObserver(([target]) => {
+      if (target.isIntersecting) {
+        console.log("intersected");
+        callback();
+      }
+    }, options);
 
-        observer.current.observe(childRef.current)
+    observer.current.observe(childRef.current);
 
-        return function () {
-          return  observer.current.unobserve(childRef.current)
-        };
-    }, [callback])
-};
+    return function () {
+      return observer.current.unobserve(childRef.current);
+    };
+    // выполняется когда зависимость callback изменилась, 
+    //колбек является функцие которя фечит данные с сервера 
+  }, [callback]);
+}
