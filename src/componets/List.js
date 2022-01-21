@@ -27,8 +27,8 @@ export default function List() {
     )
       .then((response) => response.json())
       .then((json) => {
-        setTodos((prev) => [...prev, ...json]);
-        setpage((prev) => prev + 1);
+        setTodos([...todos, ...json]);
+        setpage(page + 1);
       });
   }
   // компонент JSX
@@ -47,7 +47,7 @@ export default function List() {
         {todos.map((item) => {
           return (
             <div key={item.id}>
-              <span>{item.id}</span> . <span>{item.title}</span>
+              <span>{item.id} . {item.title}</span>
             </div>
           );
         })}
